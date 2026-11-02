@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Carla2Ecore
+Bundle-SymbolicName: ca.mcmaster.carla2ecore
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: McSCert
+Automatic-Module-Name: ca.mcmaster.carla2ecore
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-ClassPath: .,
+ lib/jeromq-0.5.4.jar
+Export-Package: ca.mcmaster.carla2ecore
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.transaction
