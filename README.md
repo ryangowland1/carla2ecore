@@ -13,7 +13,7 @@ Carla2Ecore is an Eclipse plugin project. A Python publisher reads the vehicles 
 
 ## Requirements
 
-- Eclipse with EMF, EMF Transaction, and PDE, such as Eclipse Modeling Tools 2025-06, and Java 17. If EMF Transaction is missing, install "EMF Model Transaction" from the release update site under **Help > Install New Software**.
+- Eclipse with EMF, EMF Transaction, and PDE, such as Eclipse Modeling Tools 2025-06, which brings its own Java. If EMF Transaction is missing, install "EMF Model Transaction" from the release update site under **Help > Install New Software**.
 - For live CARLA only: CARLA 0.9.16 and Python 3.12 with the packages in `python/requirements.txt`
 
 ## Import into Eclipse
@@ -32,7 +32,7 @@ Right-click each class in `examples/src` and choose **Run As > Java Application*
 
 ## Use it with your model
 
-Add `ca.mcmaster.carla2ecore` to the `Require-Bundle` header of your plugin, then:
+Add `ca.mcmaster.carla2ecore;bundle-version="[0.1.0,1.0.0)"` to the `Require-Bundle` header of your plugin (see [Versioning](#versioning)), then:
 
 ```java
 EObject root = ...;  // the root object of your model, such as a SceneGraph
@@ -93,6 +93,23 @@ Each message is 1 JSON object with a `nodes` list:
 | any other key | An attribute, set only when its value changes |
 
 The first message holds the whole road network. Later messages hold only nodes that changed. `tick` and `timestamp` are ignored by the plugin.
+
+## See it in use
+
+[MT4SG](https://github.com/ryangowland1/mt4sg) is a larger example. It streams CARLA through this plugin into a scene graph model and monitors it with VIATRA.
+
+## Versioning
+
+The plugin follows the [Eclipse version numbering guidelines](https://wiki.eclipse.org/Version_Numbering). `Bundle-Version` in `META-INF/MANIFEST.MF` has 4 segments, `major.minor.service.qualifier`:
+
+| Segment | Increases when |
+|---|---|
+| major | the API breaks |
+| minor | a release adds features that other plugins can see |
+| service | a release keeps the API compatible, such as a bug fix or a small addition |
+| qualifier | the plugin is built. PDE replaces `qualifier` with the build's timestamp. |
+
+Versions below 1.0.0 are incubation versions, so the plugin may still change before a stable 1.0.0. Each release has a git tag, such as `v0.1.0`, equal to its `Bundle-Version` without the qualifier. A plugin that depends on this one gives the version it needs up to the next major version, as in `[0.1.0,1.0.0)`.
 
 ## License
 

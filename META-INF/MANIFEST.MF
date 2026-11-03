@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Carla2Ecore
 Bundle-SymbolicName: ca.mcmaster.carla2ecore
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: McSCert
 Automatic-Module-Name: ca.mcmaster.carla2ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-17
