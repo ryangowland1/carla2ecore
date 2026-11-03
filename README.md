@@ -96,7 +96,7 @@ The first message holds the whole road network. Later messages hold only nodes t
 
 ## See it in use
 
-[MT4SG](https://github.com/ryangowland1/mt4sg) is a larger example. It streams CARLA through this plugin into a scene graph model and monitors it with VIATRA.
+MT4SG is a larger example. It streams CARLA through this plugin into a scene graph model and monitors it with VIATRA.
 
 ## Versioning
 
